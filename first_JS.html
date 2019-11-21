@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Laboratory work #4</title>
+
+        <link rel="shortcut icon" href="java-script-logo.png" type="image/png">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <h1 class="text-center">Laboratory Work #4</h1>
+        <br>
+        <div class="container-fluid">
+            <div class="row padding">
+                <div class="col-6">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <p><b>Task 1</b></p>
+                        <p>Create a function that reverse a number.</p>
+                        <label for="numberInput">Number</label>
+                        <input type="number" id="numberInput" placeholder="1234">
+                        <button type="button" name="reverseButton" class="btn btn-default" onclick="reverseNumber()">Reverse</button>
+                        <br>
+                        <small>Input any number you want to be reversed</small>
+                        <br>
+                        <label for="numberOutput">Your reversed number: </label>
+                        <output id="numberOutput">4321</output>
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <p><b>Task 2</b></p>
+                        <p>Create the form with the text and submit input elements for Name,
+                            Surname, male or female, e-mail, phone of the user.
+                            Perform processing of the form for verifying the next.
+                            If two last letters of e-mail are “ua”, inform the user where he lives.
+                        </p>
+                    </div>
+
+                    <form>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <label for="inputName">Name</label>
+                                <input type="text" class="form-control" id="inputName" placeholder="Stacie">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <label for="inputSurname">Surname</label>
+                                <input type="text" class="form-control" id="inputSurname" placeholder="Shpit">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="maleRadio" value="option1">
+                                    <label class="form-check-label" for="maleRadio">Male</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="femaleRadio" value="option2">
+                                    <label class="form-check-label" for="femaleRadio">Female</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <label for="inputEmail1">Email address</label>
+                                <input type="email" class="form-control" id="inputEmail1" aria-describedby="emailHelp" placeholder="email@example.com">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <label for="telephoneInput">Telephone</label>
+                                <input class="form-control" type="tel" value="38-(095)-123-4567" id="telephoneInput">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-default" onclick="getLastStr()">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script>
+        function reverseNumber()
+        {
+            var n = document.getElementById("numberInput").value;
+            n = n + "";
+            n = n.split("").reverse().join("");
+            //parseInt(n.toString().split("").reverse().join(""));
+            document.getElementById("numberOutput").innerHTML = n;
+        }
+
+        function getLastStr()
+        {
+            var str = document.getElementById("inputEmail1").value;
+            var last2 = str.slice(-2);
+            var answer;
+            if (last2 == "ua") {
+                alert("Perhaps, you are from Ukraine.");
+            }
+            else {
+                alert("Your country isn't defined.");
+            }
+        }
+        </script>
+
+    </body>
+</html>
